@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="salesforce-lightning-design-system-2.15.8/assets/styles/salesforce-lightning-design-system.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="//code.jquery.com/git/jquery-git.min.js"></script>
+    <script type="text/javascript" src="js/require.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var config = {
+                baseUrl: 'js'
+            };
+
+            var dependencies = [
+            'customActivity'
+            ];
+
+            require(config, dependencies);
+        })();
+    </script>
+</head>
+
+<body>
+            <div class="slds-card__header slds-grid">
+    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+      <div class="slds-media__body">
+        <h2>
+            <span class="slds-text-heading_large">Settings</span>
+          
+        </h2>
+      </div>
+    </header>
+  </div>
+            <div class="slds-form">
+              <div class="slds-form-element">
+                <label class="slds-form-element__label" for="entryObject">
+                  <abbr class="slds-required" title="required">* </abbr>Select Entry Object</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select class="slds-select" id="entryObject" required="">
+                      <option value="">Select…</option>
+                      <option value="DE">Data Extension</option>
+                      <option value="Opportunity">Opportunity</option>
+                      <option value="OpportunityArchive__c">Opportunity Archive</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form-element slds-form-element_stacked">
+                <label class="slds-form-element__label" for="domain"><abbr class="slds-required" title="required">* </abbr>Webhook Domain</label>
+                <div class="slds-form-element__control">
+                  <input type="text" id="domain" placeholder="http://example.com" class="slds-input" required=""/>
+                </div>
+              </div>
+              <div class="slds-form-element slds-form-element_stacked">
+                <label class="slds-form-element__label" for="url"></abbr>Webhook Path</label>
+                <div class="slds-form-element__control">
+                  <input type="text" id="url" placeholder="/hooks/catch/id1/id2/" class="slds-input" />
+                </div>
+              </div>
+              <div class="slds-form-element slds-form-element_stacked">
+                <label class="slds-form-element__label" for="payload">Payload</label>
+                <div class="slds-form-element__control">
+                  <textarea id="payload" placeholder="Enter your payload" class="slds-textarea" rows="10"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="slds-card__header slds-grid">
+    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+      <div class="slds-media__body">
+        <h2>
+            <span class="slds-text-heading_large">Variables Overview</span>
+          
+        </h2>
+      </div>
+    </header>
+  </div>
+
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout slds-table_striped" aria-label=" Example headless table of Opportunities with cell content truncated ">
+              <thead>
+                <tr class="slds-line-height_reset">
+                  <th class="" scope="col">
+                    <div class="slds-truncate" title="Value">Value</div>
+                  </th>
+                  <th class="" scope="col">
+                    <div class="slds-truncate" title="Variable">Variable</div>
+                  </th>
+                  <th class="" scope="col">
+                    <div class="slds-truncate" title="Variable">Object</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Contact ID</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@contactId</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Contact</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Account ID</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@accountId</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Account</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Opportunity ID</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@opportunityID</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">First Name</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@firstName</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Account</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Last Name</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@LastName</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Account</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">CP Account ID</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@cpAccountId</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Account</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Salutation</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@salutation</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Account</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Shipping Country</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@country</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Account</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Phone</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@phone</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Account</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">OptIn Email</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@optIn</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Account</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Personal Email</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@personEmail</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Account</div>
+                  </td>
+                </tr>
+              </tbody>
+              <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Stage Name</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@stageName</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Program Family</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@programFamily</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Degree Name</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@degree</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Created Date</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@createdDate</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Voucher ID</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@voucher</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Work Experience</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@workExperience</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Budget per Month</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@budget</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Rate per Interval</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@rate</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Study Advisor</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@studyAdvisor</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Stage Name</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@stageName</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Is Primary</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@isPrimary</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Migration User</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@migrationUser</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Migration User ID</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@migrationUserId</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Product Name</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@productName</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Product2</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Product Family</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@productFamily</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Product2</div>
+                  </td>
+                </tr><tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">Product Id</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@productId</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Product2</div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <th scope="row">
+                    <div class="slds-truncate">OBW Key</div>
+                  </th>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >@obwKey</div>
+                  </td>
+                  <td class="slds-cell-wrap" >
+                    <div class="slds-truncate" >Opportunity/Opportunity Archive</div>
+                  </td>
+                </tr>
+            </table>
+    </div>
+
+</div>
+</body>
+
+</html>

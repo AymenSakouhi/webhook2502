@@ -1,0 +1,59 @@
+{
+    "workflowApiVersion": "1.1",
+    "metaData": {
+        "icon": "images/icon.png",
+        "iconSmall": "images/iconSmall.png",
+        "category": "message"
+    },
+    "type": "REST",
+    "lang": {
+        "en-US": {
+            "name": "Webhook 1.0",
+          "description": "Custom Webhook Journey Builder Activity",
+          "step1Label": "Configure Webhook"
+        }
+    },
+    "arguments": {
+        "execute": {
+           "inArguments":[],
+           "outArguments": [],
+           "url": "{{APP_URL}}/journeybuilder/execute",
+           "verb": "POST",
+            "body": "",
+            "header": "",
+            "format": "json",
+            "useJwt": true,
+            "timeout": 10000
+        }
+
+    },
+    "configurationArguments": {
+      "save": {
+        "url": "{{APP_URL}}/journeybuilder/save",
+          "verb": "POST",
+        "useJwt": true
+       },
+       "publish": {
+        "url": "{{APP_URL}}/journeybuilder/publish",
+           "verb": "POST",
+        "useJwt": true
+       },
+      "stop": {
+        "url": "{{APP_URL}}/journeybuilder/stop",
+           "verb": "POST",
+        "useJwt": true
+      },
+      "validate": {
+        "url": "{{APP_URL}}/journeybuilder/validate",
+        "verb": "POST",
+        "useJwt": true
+      }
+    },
+    "userInterfaces": {
+        "configModal": {
+            "height": 400,
+            "width": 1000,
+          "fullscreen": false
+        }
+    }
+}

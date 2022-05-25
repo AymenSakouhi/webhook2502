@@ -1,0 +1,6 @@
+{
+"firstname": "@firstName",
+"lastname": "@lastName",
+"phone": "@phone",
+"message": "Hi @firstName, just go home"
+}
