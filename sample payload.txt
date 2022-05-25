@@ -4,3 +4,9 @@
 "phone": "@phone",
 "message": "Hi @firstName, just go home"
 }
+
+
+
+heroku git:remote -a example-app
+git push heroku branch-to-deploy:main
+
